@@ -13,7 +13,7 @@ import {
 import MenuIcon from "@mui/icons-material/Menu";
 import Sidebar from "./Components/Sidebar";
 
-const MainLayout = () => {
+const MainLayout = ({ mobileOpen, handleDrawerToggle, isMobile }) => {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
   const [mobileOpen, setMobileOpen] = React.useState(false);

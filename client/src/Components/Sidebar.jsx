@@ -18,19 +18,34 @@ const Sidebar = ({ mobileOpen, handleDrawerToggle, isMobile }) => {
     <div>
       <Toolbar />
       <List>
-        <ListItem button component={Link} to="/home">
+        <ListItem
+          button
+          component={Link}
+          to="/home"
+          onClick={isMobile ? handleDrawerToggle : null}
+        >
           <ListItemIcon>
             <HomeIcon />
           </ListItemIcon>
           <ListItemText primary="Home" />
         </ListItem>
-        <ListItem button component={Link} to="/reports">
+        <ListItem
+          button
+          component={Link}
+          to="/reports"
+          onClick={isMobile ? handleDrawerToggle : null}
+        >
           <ListItemIcon>
             <ReportIcon />
           </ListItemIcon>
           <ListItemText primary="Reports" />
         </ListItem>
-        <ListItem button component={Link} to="/settings">
+        <ListItem
+          button
+          component={Link}
+          to="/settings"
+          onClick={isMobile ? handleDrawerToggle : null}
+        >
           <ListItemIcon>
             <SettingsIcon />
           </ListItemIcon>
