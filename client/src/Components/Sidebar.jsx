@@ -17,39 +17,55 @@ const Sidebar = ({ mobileOpen, handleDrawerToggle, isMobile }) => {
   const drawer = (
     <div>
       <Toolbar />
-      <List>
+      <List sx={{ mt: 7 }}>
         <ListItem
           button
           component={Link}
           to="/home"
           onClick={isMobile ? handleDrawerToggle : null}
+          sx={{ my: 3, height: "60px" }} // Adjust height if needed
         >
-          <ListItemIcon>
-            <HomeIcon />
+          <ListItemIcon sx={{ minWidth: "40px", color: "black" }}>
+            <HomeIcon fontSize="large" />
           </ListItemIcon>
-          <ListItemText primary="Home" />
+          <ListItemText
+            primary="Home"
+            primaryTypographyProps={{ fontSize: "1.2rem" }} // Increase text size
+          />
         </ListItem>
         <ListItem
           button
           component={Link}
           to="/reports"
           onClick={isMobile ? handleDrawerToggle : null}
+          sx={{ my: 3, height: "60px" }} // Adjust height if needed
         >
-          <ListItemIcon>
-            <ReportIcon />
+          <ListItemIcon
+            sx={{ minWidth: "40px", color: "black" }} // Adjust icon container width if needed
+          >
+            <ReportIcon fontSize="large" />
           </ListItemIcon>
-          <ListItemText primary="Reports" />
+          <ListItemText
+            primary="Reports"
+            primaryTypographyProps={{ fontSize: "1.2rem" }} // Increase text size
+          />
         </ListItem>
         <ListItem
           button
           component={Link}
           to="/settings"
           onClick={isMobile ? handleDrawerToggle : null}
+          sx={{ height: "60px" }} // Adjust height if needed
         >
-          <ListItemIcon>
-            <SettingsIcon />
+          <ListItemIcon
+            sx={{ minWidth: "40px", color: "black" }} // Adjust icon container width if needed
+          >
+            <SettingsIcon fontSize="large" />
           </ListItemIcon>
-          <ListItemText primary="settings" />
+          <ListItemText
+            primary="Settings"
+            primaryTypographyProps={{ fontSize: "1.2rem" }} // Increase text size
+          />
         </ListItem>
       </List>
     </div>
