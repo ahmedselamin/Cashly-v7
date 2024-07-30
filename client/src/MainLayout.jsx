@@ -9,7 +9,7 @@ import {
 } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 import { Outlet } from "react-router-dom";
-import Sidebar from "./Sidebar";
+import Sidebar from "./Components/Sidebar";
 
 const MainLayout = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
