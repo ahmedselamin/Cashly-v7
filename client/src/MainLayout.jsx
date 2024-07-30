@@ -1,46 +1,62 @@
-import { useState } from "react";
+// src/MainLayout.jsx
+import React from "react";
+import { Outlet } from "react-router-dom";
 import {
   AppBar,
   Toolbar,
   IconButton,
   Typography,
-  Box,
   CssBaseline,
+  useTheme,
+  useMediaQuery,
 } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
-import { Outlet } from "react-router-dom";
 import Sidebar from "./Components/Sidebar";
 
 const MainLayout = () => {
-  const [sidebarOpen, setSidebarOpen] = useState(false);
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
+  const [mobileOpen, setMobileOpen] = React.useState(false);
 
-  const toggleSidebar = () => {
-    setSidebarOpen(!sidebarOpen);
+  const handleDrawerToggle = () => {
+    setMobileOpen(!mobileOpen);
   };
 
   return (
-    <Box sx={{ display: "flex" }}>
+    <div style={{ display: "flex" }}>
       <CssBaseline />
-      <AppBar position="fixed">
+      <AppBar position="fixed" sx={{ zIndex: theme.zIndex.drawer + 1 }}>
         <Toolbar>
           <IconButton
-            edge="start"
             color="inherit"
-            aria-label="menu"
-            onClick={toggleSidebar}
+            aria-label="open drawer"
+            edge="start"
+            onClick={handleDrawerToggle}
+            sx={{ mr: 2, display: { sm: "none" } }}
           >
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" noWrap>
-            Responsive Sidebar
+            Cashly
           </Typography>
         </Toolbar>
       </AppBar>
-      <Sidebar open={sidebarOpen} onClose={toggleSidebar} />
-      <Box component="main" sx={{ flexGrow: 1, p: 3, mt: 8 }}>
+      <Sidebar
+        mobileOpen={mobileOpen}
+        handleDrawerToggle={handleDrawerToggle}
+        isMobile={isMobile}
+      />
+      <main
+        style={{
+          flexGrow: 1,
+          padding: theme.spacing(3),
+          marginLeft: isMobile ? 0 : 240,
+        }}
+      >
+        <Toolbar />
         <Outlet />
-      </Box>
-    </Box>
+      </main>
+    </div>
   );
 };
 
