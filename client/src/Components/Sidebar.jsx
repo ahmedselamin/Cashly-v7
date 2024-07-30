@@ -72,7 +72,7 @@ const Sidebar = ({ mobileOpen, handleDrawerToggle, isMobile }) => {
           variant="contained"
           color="secondary"
           onClick={() => {}}
-          sx={{ mx: 2, mt: "4rem" }}
+          sx={{ mx: 2, mt: "4rem", p: "12px", fontWeight: 550 }}
         >
           new Transaction
         </Button>
