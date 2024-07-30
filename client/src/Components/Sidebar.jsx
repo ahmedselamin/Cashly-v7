@@ -1,5 +1,15 @@
 import { Link } from "react-router-dom";
-import { Drawer, List, ListItem, ListItemText, Toolbar } from "@mui/material";
+import {
+  Drawer,
+  List,
+  ListItem,
+  ListItemIcon,
+  ListItemText,
+  Toolbar,
+} from "@mui/material";
+import HomeIcon from "@mui/icons-material/Home";
+import ReportIcon from "@mui/icons-material/Assessment";
+import SettingsIcon from "@mui/icons-material/Settings";
 
 const drawerWidth = 240;
 
@@ -9,12 +19,21 @@ const Sidebar = ({ mobileOpen, handleDrawerToggle, isMobile }) => {
       <Toolbar />
       <List>
         <ListItem button component={Link} to="/home">
+          <ListItemIcon>
+            <HomeIcon />
+          </ListItemIcon>
           <ListItemText primary="Home" />
         </ListItem>
         <ListItem button component={Link} to="/reports">
+          <ListItemIcon>
+            <ReportIcon />
+          </ListItemIcon>
           <ListItemText primary="Reports" />
         </ListItem>
         <ListItem button component={Link} to="/settings">
+          <ListItemIcon>
+            <SettingsIcon />
+          </ListItemIcon>
           <ListItemText primary="settings" />
         </ListItem>
       </List>
