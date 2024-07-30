@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import {
   Drawer,
+  Button,
   List,
   ListItem,
   ListItemIcon,
@@ -67,6 +68,14 @@ const Sidebar = ({ mobileOpen, handleDrawerToggle, isMobile }) => {
             primaryTypographyProps={{ fontSize: "1.2rem" }} // Increase text size
           />
         </ListItem>
+        <Button
+          variant="contained"
+          color="secondary"
+          onClick={() => {}}
+          sx={{ mx: 2, mt: "4rem" }}
+        >
+          new Transaction
+        </Button>
       </List>
     </div>
   );
