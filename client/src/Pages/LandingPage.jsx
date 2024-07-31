@@ -15,16 +15,13 @@ const LandingPage = () => {
   return (
     <Box sx={{ display: "flex", flexDirection: "column", minHeight: "100vh" }}>
       {/* Header */}
-      <AppBar position="static">
+      <AppBar position="sticky">
         <Toolbar>
           <Typography variant="h6" sx={{ flexGrow: 1 }}>
             Cashly
           </Typography>
           <Button color="inherit" component={Link} to="/login">
             Login
-          </Button>
-          <Button color="inherit" component={Link} to="/signup">
-            Sign Up
           </Button>
         </Toolbar>
       </AppBar>
