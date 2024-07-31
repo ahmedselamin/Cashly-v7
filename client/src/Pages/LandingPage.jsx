@@ -17,7 +17,14 @@ const LandingPage = () => {
       {/* Header */}
       <AppBar position="sticky">
         <Toolbar>
-          <Typography variant="h6" sx={{ flexGrow: 1 }}>
+          <Typography
+            variant="h6"
+            sx={{
+              flexGrow: 1,
+              fontFamily: "Georgia, serif",
+              fontSize: "1.8rem",
+            }}
+          >
             Cashly
           </Typography>
           <Button color="inherit" component={Link} to="/login">
