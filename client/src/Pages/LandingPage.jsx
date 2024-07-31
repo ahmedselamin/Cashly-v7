@@ -13,9 +13,7 @@ import {
   DialogContent,
   DialogTitle,
   TextField,
-  MenuItem,
 } from "@mui/material";
-import { Link } from "react-router-dom";
 
 const LandingPage = () => {
   const [loginOpen, setLoginOpen] = useState(false);
@@ -30,7 +28,7 @@ const LandingPage = () => {
     setLoginOpen(false);
   };
 
-  const handleSignupOpen = () => {
+  const handleSignUpOpen = () => {
     setSignUpOpen(true);
   };
 
@@ -95,9 +93,8 @@ const LandingPage = () => {
               variant="contained"
               color="secondary"
               size="large"
-              component={Link}
-              to="/signup"
               sx={{ my: 1 }}
+              onClick={handleSignUpOpen}
             >
               Get Started
             </Button>
