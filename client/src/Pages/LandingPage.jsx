@@ -20,6 +20,8 @@ import { Link } from "react-router-dom";
 const LandingPage = () => {
   const [loginOpen, setLoginOpen] = useState(false);
 
+  const [signUpOpen, setSignUpOpen] = useState(false);
+
   const handleLoginOpen = () => {
     setLoginOpen(true);
   };
@@ -28,12 +30,25 @@ const LandingPage = () => {
     setLoginOpen(false);
   };
 
+  const handleSignupOpen = () => {
+    setSignUpOpen(true);
+  };
+
+  const handleSignUpClose = () => {
+    setSignUpOpen(false);
+  };
+
   const handleLoginSubmit = (event) => {
     event.preventDefault();
     // Add login logic here
     console.log("Username:", event.target.username.value);
     console.log("Password:", event.target.password.value);
     handleLoginClose();
+  };
+
+  const handleSignUpSubmit = (e) => {
+    e.preventDefault();
+    handleSignUpClose();
   };
 
   return (
@@ -185,6 +200,46 @@ const LandingPage = () => {
               </Button>
               <Button type="submit" color="primary">
                 Login
+              </Button>
+            </DialogActions>
+          </Box>
+        </DialogContent>
+      </Dialog>
+      {/* sign up dialog */}
+      <Dialog open={signUpOpen} onClose={handleSignUpClose}>
+        <DialogTitle>Join</DialogTitle>
+        <DialogContent>
+          <Box component="form" onSubmit={handleSignUpSubmit} sx={{ mt: 2 }}>
+            <TextField
+              margin="dense"
+              name="username"
+              label="Username"
+              type="text"
+              fullWidth
+              required
+            />
+            <TextField
+              margin="dense"
+              name="password"
+              label="Password"
+              type="password"
+              fullWidth
+              required
+            />
+            <TextField
+              margin="dense"
+              name="confirm-password"
+              label="Confirm Password"
+              type="password"
+              fullWidth
+              required
+            />
+            <DialogActions>
+              <Button onClick={handleSignUpClose} color="primary">
+                Cancel
+              </Button>
+              <Button type="submit" color="primary">
+                Sign Up
               </Button>
             </DialogActions>
           </Box>
