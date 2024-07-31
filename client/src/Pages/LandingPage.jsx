@@ -33,7 +33,7 @@ const LandingPage = () => {
           sx={{
             bgcolor: "primary.main",
             color: "white",
-            py: 8,
+            py: 9,
             textAlign: "center",
           }}
         >
@@ -41,8 +41,9 @@ const LandingPage = () => {
             <Typography variant="h2" component="h1" gutterBottom>
               Welcome to Cashly
             </Typography>
-            <Typography variant="h5" component="p" gutterBottom>
-              Manage your finances with ease and efficiency.
+            <Typography variant="h6" component="p" gutterBottom>
+              Effortlessly manage your finances with ease. Track expenses,
+              generate reports, all in a single intuitive platform.
             </Typography>
             <Button
               variant="contained"
@@ -50,6 +51,7 @@ const LandingPage = () => {
               size="large"
               component={Link}
               to="/signup"
+              sx={{ my: 1 }}
             >
               Get Started
             </Button>
