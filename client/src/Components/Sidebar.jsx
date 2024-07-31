@@ -34,6 +34,9 @@ const Sidebar = ({ mobileOpen, handleDrawerToggle, isMobile }) => {
 
   const handleClickOpen = () => {
     setOpen(true);
+    if (isMobile) {
+      handleDrawerToggle();
+    }
   };
 
   const handleClose = () => {
@@ -214,7 +217,12 @@ const Sidebar = ({ mobileOpen, handleDrawerToggle, isMobile }) => {
               >
                 Cancel
               </Button>
-              <Button variant="contained" type="submit" color="primary">
+              <Button
+                variant="contained"
+                type="submit"
+                color="primary"
+                /*onClick={handleClose} */
+              >
                 Submit
               </Button>
             </DialogActions>
