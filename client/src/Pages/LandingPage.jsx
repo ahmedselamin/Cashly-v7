@@ -1,4 +1,4 @@
-import React from "react";
+import { useState } from "react";
 import {
   AppBar,
   Toolbar,
@@ -8,10 +8,34 @@ import {
   Box,
   Grid,
   Paper,
+  Dialog,
+  DialogActions,
+  DialogContent,
+  DialogTitle,
+  TextField,
+  MenuItem,
 } from "@mui/material";
 import { Link } from "react-router-dom";
 
 const LandingPage = () => {
+  const [loginOpen, setLoginOpen] = useState(false);
+
+  const handleLoginOpen = () => {
+    setLoginOpen(true);
+  };
+
+  const handleLoginClose = () => {
+    setLoginOpen(false);
+  };
+
+  const handleLoginSubmit = (event) => {
+    event.preventDefault();
+    // Add login logic here
+    console.log("Username:", event.target.username.value);
+    console.log("Password:", event.target.password.value);
+    handleLoginClose();
+  };
+
   return (
     <Box sx={{ display: "flex", flexDirection: "column", minHeight: "100vh" }}>
       {/* Header */}
@@ -27,7 +51,7 @@ const LandingPage = () => {
           >
             Cashly
           </Typography>
-          <Button color="inherit" component={Link} to="/login">
+          <Button color="inherit" onClick={handleLoginOpen}>
             Login
           </Button>
         </Toolbar>
@@ -135,6 +159,37 @@ const LandingPage = () => {
           </Box>
         </Container>
       </Box>
+      <Dialog open={loginOpen} onClose={handleLoginClose}>
+        <DialogTitle>Login</DialogTitle>
+        <DialogContent>
+          <Box component="form" onSubmit={handleLoginSubmit} sx={{ mt: 2 }}>
+            <TextField
+              margin="dense"
+              name="username"
+              label="Username"
+              type="text"
+              fullWidth
+              required
+            />
+            <TextField
+              margin="dense"
+              name="password"
+              label="Password"
+              type="password"
+              fullWidth
+              required
+            />
+            <DialogActions>
+              <Button onClick={handleLoginClose} color="primary">
+                Cancel
+              </Button>
+              <Button type="submit" color="primary">
+                Login
+              </Button>
+            </DialogActions>
+          </Box>
+        </DialogContent>
+      </Dialog>
     </Box>
   );
 };
